@@ -47,10 +47,12 @@
 
             game.stage.disableVisibilityChange = true;
             let bounds = new Phaser.Rectangle(100, 100, 400, 400);
+            
 
             game.physics.startSystem(Phaser.Physics.P2JS);
             game.physics.p2.world.defaultContactMaterial.friction = 0.3;
             game.physics.p2.world.setGlobalStiffness(1e5);
+            game.pixelArt = true;
             let map = game.add.tileSprite(0, 0, 1920, 1920, 'map');
             
 
@@ -67,6 +69,14 @@
             player.animations.add('right', [6, 7, 8], 10, true);
             player.animations.add('up', [9, 10, 11], 10, true);
             player.animations.add('down', [0, 1, 2], 10, true);
+
+           
+            console.log(game.camera.screenView.x)
+            console.log(game.camera.screenView.y)
+            console.log(game.camera.screenView)
+            
+            console.log(player)
+
 
             game.camera.follow(player)
 
